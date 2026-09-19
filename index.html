@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>上野発｜日帰り温泉ドライブ3プラン</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--text:#172033;--muted:#64748b;--line:#e2e8f0;--blue:#2878e3;--navy:#111827;--cyan:#e9fbff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.65}
+a{color:inherit}
+.wrap{max-width:1080px;margin:auto;padding:18px 14px 60px}
+.hero{background:linear-gradient(135deg,#111827,#274c77);color:#fff;border-radius:24px;padding:30px 24px;margin-bottom:18px}
+.hero h1{margin:0 0 10px;font-size:clamp(30px,7vw,52px);line-height:1.08}
+.hero p{margin:0;color:#dbeafe;max-width:760px}
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0 22px}
+.nav a{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;text-decoration:none;font-weight:800}
+.plan{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;margin-bottom:24px;box-shadow:0 8px 24px rgba(15,23,42,.05)}
+.plan-head{display:grid;grid-template-columns:1.05fr .95fr}
+.plan-title{padding:26px}
+.kicker{font-weight:900;color:var(--blue);letter-spacing:.05em;font-size:13px}
+h2{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:4px 0 8px}
+.lead{color:var(--muted);font-size:17px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{background:var(--cyan);color:#155e75;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
+.heroimg{width:100%;height:100%;min-height:285px;object-fit:cover;display:block;background:#e5e7eb}
+.content{padding:20px}
+.route-title{font-weight:900;margin:2px 0 12px}
+.route{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:stretch;margin-bottom:18px}
+.stop{position:relative;background:#f8fafc;border:1px solid var(--line);border-radius:15px;padding:12px 8px;text-align:center;min-height:84px;display:flex;flex-direction:column;justify-content:center}
+.stop b{color:var(--blue);font-size:13px}
+.stop:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:#94a3b8;font-size:22px;z-index:2}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{border:1px solid var(--line);border-radius:18px;padding:16px}
+.box h3{margin:0 0 10px}
+.timeline{border-left:3px solid var(--blue);padding-left:14px}
+.time{margin-bottom:12px}
+.time b{display:inline-block;min-width:105px;color:var(--blue)}
+.diagram{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.di{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.di .ico{font-size:28px;display:block;margin-bottom:4px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.photo{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.photo img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#e5e7eb}
+.cap{padding:9px 11px;color:var(--muted);font-size:12px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.btn{display:inline-block;text-decoration:none;background:#172033;color:#fff;padding:10px 13px;border-radius:11px;font-size:13px;font-weight:800}
+.btn.alt{background:#eef2ff;color:#3730a3}
+.btn.map{background:#ecfdf5;color:#065f46}
+.warn{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:13px;padding:11px 13px;margin-top:12px}
+.compare{background:#fff;border:1px solid var(--line);border-radius:20px;padding:17px;overflow:auto}
+table{width:100%;min-width:680px;border-collapse:collapse}
+th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#f8fafc}
+.foot{font-size:12px;color:var(--muted);margin-top:17px}
+.top{position:fixed;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;background:#111827;color:white;text-decoration:none;display:grid;place-items:center}
+@media(max-width:760px){
+ .plan-head,.columns,.gallery{grid-template-columns:1fr}
+ .heroimg{min-height:220px;max-height:280px}
+ .nav{grid-template-columns:1fr}
+ .route{display:flex;overflow-x:auto;padding:4px 14px 8px 0}
+ .stop{min-width:145px}
+ .diagram{grid-template-columns:1fr 1fr}
+ .content{padding:16px}
+}
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+<section class="hero">
+<h1>上野発<br>日帰り温泉ドライブ 3プラン</h1>
+<p>8:00出発・23:00までに上野へ。観光を詰め込みすぎず「食事＋軽い観光＋温泉」を楽しむ3ルート。</p>
+</section>
+<nav class="nav">
+<a href="#ikaho">① 伊香保・水沢うどん</a>
+<a href="#nasu">② 那須・鹿の湯</a>
+<a href="#gotemba">③ 御殿場・木の花の湯</a>
+</nav>
+<section class="plan" id="ikaho">
+<div class="plan-head"><div class="plan-title"><div class="kicker">PLAN 1｜群馬</div><h2>伊香保 × 水沢うどん</h2><div class="lead">食事・温泉街散策・露天風呂が近い範囲にまとまる、最も「温泉旅行らしい」プラン。</div><div class="chips"><span class="chip">石段街</span><span class="chip">黄金の湯</span><span class="chip">水沢うどん</span></div></div><img class="heroimg" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikaho_Onsen_Stone_Steps.jpg" alt="伊香保石段街" referrerpolicy="no-referrer"></div>
+<div class="content"><div class="route-title">🚗 1日の流れ</div><div class="route"><div class="stop"><b>08:00</b>上野</div><div class="stop"><b>10:45</b>水沢うどん</div><div class="stop"><b>12:00</b>石段街</div><div class="stop"><b>15:00</b>露天風呂</div><div class="stop"><b>18:30</b>夕食</div><div class="stop"><b>22:30頃</b>上野</div></div>
+<div class="columns"><div class="box"><h3>🕒 時間配分</h3><div class="timeline"><div class="time"><b>08:00</b>上野出発</div><div class="time"><b>10:45–11:45</b>水沢うどん</div><div class="time"><b>12:00–14:30</b>石段街・伊香保神社・河鹿橋</div><div class="time"><b>15:00–16:30</b>伊香保露天風呂</div><div class="time"><b>16:30–18:00</b>カフェ・土産</div><div class="time"><b>18:30–19:30</b>夕食</div><div class="time"><b>20:00</b>帰路 → 22:30頃 上野</div></div></div>
+<div class="box"><h3>♨ 施設の中身を図解</h3><div class="diagram"><div class="di"><span class="ico">♨️</span>黄金の湯<br>掛け流し</div><div class="di"><span class="ico">🌲</span>自然の中の<br>露天風呂</div><div class="di"><span class="ico">🚿</span>洗い場<br>なし</div><div class="di"><span class="ico">🚶</span>石段街から<br>徒歩散策</div></div><div class="warn">設備充実型ではなく「温泉そのもの」を楽しむタイプ。</div><div class="links"><a class="btn" href="https://www.ikaho-kankou.com/spring/spa1/" target="_blank">伊香保露天風呂 公式</a><a class="btn alt" href="https://www.ikaho-kankou.com/eat/udon/" target="_blank">水沢うどん案内</a><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=伊香保露天風呂" target="_blank">Google Maps</a></div></div></div>
+<div class="gallery"><div class="photo"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikaho_Onsen_Stone_Steps.jpg" alt="伊香保石段街" referrerpolicy="no-referrer"><div class="cap">伊香保石段街。食べ歩きやカフェを挟みながら散策。</div></div><div class="photo"><img src="https://static.gltjp.com/glt/data/article/22000/21192/20251031_094131_a5c48f92_w1920.webp" alt="水沢うどん" referrerpolicy="no-referrer" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikaho_Onsen_Stone_Steps.jpg'"><div class="cap">水沢うどん。昼食をここにすると伊香保への動線がきれい。</div></div></div></div></section>
+<section class="plan" id="nasu"><div class="plan-head"><div class="plan-title"><div class="kicker">PLAN 2｜栃木</div><h2>那須 × 鹿の湯</h2><div class="lead">白濁した硫黄泉と昔ながらの木造浴場。3案の中で最も「泉質」を主役にしたプラン。</div><div class="chips"><span class="chip">硫黄泉</span><span class="chip">木造浴場</span><span class="chip">温度別浴槽</span></div></div><img class="heroimg" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Deer%27s%20Spa%2C%20Nasu-Yumoto.jpg" alt="那須 鹿の湯" referrerpolicy="no-referrer"></div><div class="content"><div class="route-title">🚗 1日の流れ</div><div class="route"><div class="stop"><b>08:00</b>上野</div><div class="stop"><b>10:30</b>那須</div><div class="stop"><b>11:00</b>昼食</div><div class="stop"><b>13:00</b>高原散策</div><div class="stop"><b>15:30</b>鹿の湯</div><div class="stop"><b>22:00頃</b>上野</div></div><div class="columns"><div class="box"><h3>🕒 時間配分</h3><div class="timeline"><div class="time"><b>08:00</b>上野出発</div><div class="time"><b>10:30</b>那須到着</div><div class="time"><b>11:00–12:15</b>昼食</div><div class="time"><b>13:00–14:30</b>高原ドライブ・観光1か所</div><div class="time"><b>15:30–17:00</b>鹿の湯</div><div class="time"><b>17:15–18:15</b>カフェ・休憩</div><div class="time"><b>18:30–19:30</b>夕食</div><div class="time"><b>19:30</b>帰路 → 22:00〜22:30上野</div></div></div><div class="box"><h3>♨ 施設の中身を図解</h3><div class="diagram"><div class="di"><span class="ico">🥛</span>白濁した<br>硫黄泉</div><div class="di"><span class="ico">🌡️</span>41〜48℃<br>温度別浴槽</div><div class="di"><span class="ico">🪵</span>昔ながらの<br>木造浴場</div><div class="di"><span class="ico">🧼</span>石鹸類<br>使用不可</div></div><div class="warn">長湯するスパではなく、短めに入浴して休む湯治スタイル向き。</div><div class="links"><a class="btn" href="https://www.shikanoyu.jp/" target="_blank">鹿の湯 公式</a><a class="btn alt" href="https://www.shikanoyu.jp/faciloties/" target="_blank">館内・ギャラリー</a><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=那須温泉+鹿の湯" target="_blank">Google Maps</a></div></div></div><div class="gallery"><div class="photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Deer%27s%20Spa%2C%20Nasu-Yumoto.jpg" alt="鹿の湯外観" referrerpolicy="no-referrer"><div class="cap">鹿の湯外観。近代的なスーパー銭湯とは違う湯治場の雰囲気。</div></div><div class="photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nasuonsen%20shikanoyu.gif" alt="鹿の湯" referrerpolicy="no-referrer"><div class="cap">那須湯本温泉・鹿の湯。温泉好きなら3案の中でも特に個性的。</div></div></div></div></section>
+<section class="plan" id="gotemba"><div class="plan-head"><div class="plan-title"><div class="kicker">PLAN 3｜静岡</div><h2>御殿場 × 木の花の湯</h2><div class="lead">富士山ビュー、温泉、サウナ、休憩スペース。午後をゆっくり過ごす快適型プラン。</div><div class="chips"><span class="chip">富士山ビュー</span><span class="chip">サウナ</span><span class="chip">休憩処</span><span class="chip">アウトレット</span></div></div><img class="heroimg" src="https://sp.jorudan.co.jp/onsen/images/spot/640/168192_1.jpg" alt="木の花の湯" referrerpolicy="no-referrer" onerror="this.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20on%20Fuji%20from%20Gotemba.JPG'"></div><div class="content"><div class="route-title">🚗 1日の流れ</div><div class="route"><div class="stop"><b>08:00</b>上野</div><div class="stop"><b>10:30</b>御殿場</div><div class="stop"><b>10:30–13:00</b>買物＋昼食</div><div class="stop"><b>14:00–17:00</b>木の花の湯</div><div class="stop"><b>18:30</b>夕食</div><div class="stop"><b>22:00頃</b>上野</div></div><div class="columns"><div class="box"><h3>🕒 時間配分</h3><div class="timeline"><div class="time"><b>08:00</b>上野出発</div><div class="time"><b>10:30–13:00</b>アウトレット＋昼食</div><div class="time"><b>14:00–17:00</b>温泉・サウナ・休憩</div><div class="time"><b>17:00–18:00</b>カフェ</div><div class="time"><b>18:30–19:30</b>夕食</div><div class="time"><b>20:00</b>帰路 → 22:00〜23:00上野</div></div></div><div class="box"><h3>♨ 施設の中身を図解</h3><div class="diagram"><div class="di"><span class="ico">🗻</span>富士山を望む<br>展望風呂</div><div class="di"><span class="ico">♨️</span>露天＋内湯<br>自家源泉</div><div class="di"><span class="ico">🔥</span>サウナ</div><div class="di"><span class="ico">📚</span>休息房・<br>テラス</div></div><div class="warn">3時間ほど取って「風呂→サウナ→休憩」で使うのが向いています。</div><div class="links"><a class="btn" href="https://www.gotemba-konohananoyu.jp/" target="_blank">木の花の湯 公式</a><a class="btn alt" href="https://www.gotemba-konohananoyu.jp/spa/public.php" target="_blank">大浴場を見る</a><a class="btn alt" href="https://www.gotemba-konohananoyu.jp/facilities/" target="_blank">館内施設を見る</a><a class="btn alt" href="https://www.premiumoutlets.co.jp/gotemba/" target="_blank">アウトレット</a><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=木の花の湯+御殿場" target="_blank">Google Maps</a></div></div></div><div class="gallery"><div class="photo"><img src="https://sp.jorudan.co.jp/onsen/images/spot/640/168192_1.jpg" alt="木の花の湯露天風呂" referrerpolicy="no-referrer" onerror="this.src='https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20on%20Fuji%20from%20Gotemba.JPG'"><div class="cap">富士山を望む露天風呂。晴天なら景色のインパクトが大きい。</div></div><div class="photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/View%20on%20Fuji%20from%20Gotemba.JPG" alt="御殿場からの富士山" referrerpolicy="no-referrer"><div class="cap">御殿場から見た富士山。木の花の湯はこの方向の景観を生かした施設。</div></div></div></div></section>
+<section class="compare"><h2 style="font-size:25px;margin-top:0">3案比較</h2><table><thead><tr><th>項目</th><th>伊香保</th><th>那須</th><th>御殿場</th></tr></thead><tbody><tr><td>雰囲気</td><td>王道温泉街</td><td>昔ながらの湯治場</td><td>快適スパ＋ドライブ</td></tr><tr><td>温泉の特徴</td><td>黄金の湯</td><td>白濁硫黄泉</td><td>富士山展望</td></tr><tr><td>観光</td><td>石段街</td><td>高原散策</td><td>アウトレット</td></tr><tr><td>長居しやすさ</td><td>△</td><td>△</td><td>◎</td></tr><tr><td>温泉旅行感</td><td>◎</td><td>◎</td><td>○</td></tr></tbody></table></section>
+<div class="foot">写真は外部参照ですが、直リンク制限が比較的少ないWikimedia等を優先し、木の花の湯は代替画像も設定しています。公式ページ・Google Mapsボタンから各施設の最新情報を確認できます。</div>
+</div><a class="top" href="#top">↑</a>
+</body></html>
