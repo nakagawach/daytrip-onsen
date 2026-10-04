@@ -11,7 +11,7 @@
 .hero{padding:42px 18px 24px;background:linear-gradient(135deg,#fff9ef,#efe5d5);border-bottom:1px solid var(--line)}
 .wrap{max-width:980px;margin:auto}.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:800}.hero h1{font-size:clamp(27px,6vw,46px);line-height:1.18;margin:8px 0 10px}.hero p{margin:0;color:var(--sub);font-size:15px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.chip{background:#fff;border:1px solid var(--line);padding:7px 11px;border-radius:999px;font-size:12px}
 .tabs-wrap{position:sticky;top:0;z-index:30;background:rgba(246,244,239,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.tabs{max-width:980px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px 14px}.tab{border:0;border-radius:12px;padding:12px 8px;font-weight:800;background:#e9e4dc;color:#5a554e}.tab.active{background:#26221d;color:#fff}
+.tabs{max-width:980px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:10px 14px}.tab{border:0;border-radius:12px;padding:12px 8px;font-weight:800;background:#e9e4dc;color:#5a554e}.tab.active{background:#26221d;color:#fff}
 main{max-width:980px;margin:auto;padding:20px 14px 46px}.panel{display:none}.panel.active{display:block}.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:8px 2px 16px}.section-title h2{margin:0;font-size:24px}.section-title span{font-size:12px;color:var(--sub)}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.photo{height:210px;width:100%;object-fit:cover;display:block}.photo-note{font-size:10px;color:#777;background:#fff;padding:3px 8px;position:absolute;right:8px;bottom:8px;border-radius:8px}.imgwrap{position:relative}
 .content{padding:16px}.topline{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.name{font-size:21px;font-weight:900;line-height:1.25}.price{white-space:nowrap;font-weight:900;color:var(--accent)}.meta{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.badge{font-size:11px;background:#f1eee8;padding:5px 8px;border-radius:999px}.badge.good{background:#e8f4ea;color:#275d32;font-weight:800}.desc{font-size:14px;color:#504c47;margin:10px 0 12px}.menu{background:#faf8f4;border-radius:12px;padding:10px 12px;font-size:13px;margin:10px 0}.menu strong{display:block;margin-bottom:3px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.btn{display:block;text-align:center;text-decoration:none;border-radius:11px;padding:11px 8px;font-weight:800;font-size:13px}.btn.primary{background:#26221d;color:#fff}.btn.secondary{background:#f1eee8;color:#39342e}
@@ -23,14 +23,15 @@ main{max-width:980px;margin:auto;padding:20px 14px 46px}.panel{display:none}.pan
 <header class="hero"><div class="wrap">
 <div class="eyebrow">UENO LUNCH GUIDE</div>
 <h1>上野駅周辺<br>6人で入りやすいランチ</h1>
-<p>和食・洋食・中華をタブで比較。各ジャンル5店、計15店。駅から近く、6人利用を相談・予約しやすい店を中心に選びました。</p>
-<div class="chips"><span class="chip">👥 6名想定</span><span class="chip">🚉 上野駅周辺</span><span class="chip">💴 価格目安つき</span><span class="chip">🍴 全15店</span><span class="chip">🔗 公式リンクつき</span></div>
+<p>和食・洋食・中華・焼肉をタブで比較。各ジャンル5店、計20店。駅から近く、6人利用を相談・予約しやすい店を中心に選びました。</p>
+<div class="chips"><span class="chip">👥 6名想定</span><span class="chip">🚉 上野駅周辺</span><span class="chip">💴 価格目安つき</span><span class="chip">🍴 全20店</span><span class="chip">🔗 公式リンクつき</span></div>
 </div></header>
 
 <div class="tabs-wrap"><div class="tabs">
 <button class="tab active" data-tab="washoku">🍱 和食</button>
 <button class="tab" data-tab="yoshoku">🍽️ 洋食</button>
 <button class="tab" data-tab="chuka">🥟 中華</button>
+<button class="tab" data-tab="yakiniku">🥩 焼肉</button>
 </div></div>
 
 <main>
@@ -196,6 +197,62 @@ main{max-width:980px;margin:auto;padding:20px 14px 46px}.panel{display:none}.pan
 </div></article>
 </div></section>
 
+
+<section id="yakiniku" class="panel">
+<div class="section-title"><h2>🥩 焼肉</h2><span>6人で焼くなら予約がおすすめ</span></div>
+<div class="grid">
+
+<article class="card">
+<div class="imgwrap"><img class="photo" src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=82" alt="焼肉の料理イメージ"><span class="photo-note">料理イメージ</span></div>
+<div class="content">
+<div class="topline"><div class="name">焼肉上野太昌園 上野駅前店</div><div class="price">¥1,280〜</div></div>
+<div class="meta"><span class="badge good">6人◎ 6〜16名個室</span><span class="badge">京成上野駅すぐ</span><span class="badge">11:00〜16:00ランチ</span></div>
+<p class="desc">昭和38年創業の老舗。6〜16名対応の個室があり、6人利用にかなり向く。価格も幅広く、しっかり焼肉から軽めまで選びやすい。</p>
+<div class="menu"><strong>代表ランチ</strong>焼肉弁当ランチ 1,280円 ／ まろたい太ランチ 1,830円 ／ 特上赤身ランチ 2,500円 ／ 特上カルビランチ 2,800円</div>
+<div class="actions"><a class="btn primary" href="https://www.hotpepper.jp/strJ000127402/lunch/" target="_blank" rel="noopener">ランチメニュー</a><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=焼肉上野太昌園+上野駅前店" target="_blank" rel="noopener">地図</a></div>
+</div></article>
+
+<article class="card">
+<div class="imgwrap"><img class="photo" src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=82" alt="焼肉の料理イメージ"><span class="photo-note">料理イメージ</span></div>
+<div class="content">
+<div class="topline"><div class="name">焼肉陽山道 上野駅前店</div><div class="price">¥1,300〜</div></div>
+<div class="meta"><span class="badge good">6人○ グループ利用向き</span><span class="badge">上野駅近</span><span class="badge">平日サービスランチ</span></div>
+<p class="desc">上野の老舗焼肉店。平日は1,300円のサービスランチがあり、価格を抑えて本格焼肉を食べたい時に強い候補。</p>
+<div class="menu"><strong>平日限定ランチ</strong>銘柄牛切落しランチ 1,300円 ／ プライムハラミ切落しランチ 1,300円 ／ ヤンニョンカルビランチ 1,300円</div>
+<div class="actions"><a class="btn primary" href="https://yansando.jp/news/3139/" target="_blank" rel="noopener">公式・ランチ</a><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=焼肉陽山道+上野駅前店" target="_blank" rel="noopener">地図</a></div>
+</div></article>
+
+<article class="card">
+<div class="imgwrap"><img class="photo" src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1200&q=82" alt="和牛焼肉の料理イメージ"><span class="photo-note">料理イメージ</span></div>
+<div class="content">
+<div class="topline"><div class="name">和牛焼肉 土古里 上野バンブーガーデン店</div><div class="price">¥1,500〜</div></div>
+<div class="meta"><span class="badge good">6人◎ 個室・半個室</span><span class="badge">山下口すぐ</span><span class="badge">ネット予約可</span></div>
+<p class="desc">上野駅から近く、6人でまとまりやすい個室・半個室系。焼肉だけでなく石焼ビビンパや冷麺もあり、好みが分かれても対応しやすい。</p>
+<div class="menu"><strong>代表ランチ</strong>石焼ビビンパ 1,500円 ／ 和牛カルビセット 2,100円 ／ 和牛カルビ・ロースセット 2,200円 ／ 焼肉3点盛りセット 2,500円</div>
+<div class="actions"><a class="btn primary" href="https://yakiniku-tokori-uenobamboo.com/lunch/" target="_blank" rel="noopener">公式・ランチ</a><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=和牛焼肉+土古里+上野バンブーガーデン店" target="_blank" rel="noopener">地図</a></div>
+</div></article>
+
+<article class="card">
+<div class="imgwrap"><img class="photo" src="https://images.unsplash.com/photo-1558030137-a56c1b004fa3?auto=format&fit=crop&w=1200&q=82" alt="高級焼肉の料理イメージ"><span class="photo-note">料理イメージ</span></div>
+<div class="content">
+<div class="topline"><div class="name">叙々苑 上野マルイ店</div><div class="price">¥2,800〜</div></div>
+<div class="meta"><span class="badge good">6人○ 86席</span><span class="badge">上野駅 徒歩1分</span><span class="badge">11:00〜15:00ランチ</span></div>
+<p class="desc">駅近で分かりやすく、少し上質な焼肉ランチに。席数が多く、6人なら事前予約がおすすめ。焼肉を無難にまとめたい時の安心候補。</p>
+<div class="menu"><strong>代表ランチ</strong>焼肉重ランチ 2,800円 ／ 焼肉ランチ 3,000円 ／ ミックスランチ 4,100円 ／ 吟味ランチ 6,700円</div>
+<div class="actions"><a class="btn primary" href="https://www.jojoen.co.jp/shop/jojoen/marui/" target="_blank" rel="noopener">公式・メニュー</a><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=叙々苑+上野マルイ店" target="_blank" rel="noopener">地図</a></div>
+</div></article>
+
+<article class="card">
+<div class="imgwrap"><img class="photo" src="https://images.unsplash.com/photo-1547050605-2f268cd5daf0?auto=format&fit=crop&w=1200&q=82" alt="黒毛和牛焼肉の料理イメージ"><span class="photo-note">料理イメージ</span></div>
+<div class="content">
+<div class="topline"><div class="name">上野 和牛焼肉 USHIHACHI 極</div><div class="price">¥1,390〜</div></div>
+<div class="meta"><span class="badge good">6人◎ 個室あり</span><span class="badge">浅草口 徒歩3分</span><span class="badge">FUNDES上野10F</span></div>
+<p class="desc">黒毛和牛中心で、個室もある焼肉店。1,000円台のセットから贅沢ランチまで選べ、6人で価格帯を揃えやすい。</p>
+<div class="menu"><strong>代表ランチ</strong>和牛ホルモンセット 1,390円 ／ お得焼肉セット 1,490円 ／ 上タンと上ハラミセット 2,190円 ／ 和牛特上セット 2,890円</div>
+<div class="actions"><a class="btn primary" href="https://shop.gyro.holdings/detail/ushihachi007/" target="_blank" rel="noopener">公式・店舗情報</a><a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=上野+和牛焼肉+USHIHACHI+極" target="_blank" rel="noopener">地図</a></div>
+</div></article>
+
+</div></section>
 <div class="note"><strong>6人なら予約推奨。</strong> 特に土日祝の12時前後は埋まりやすいです。料金・提供メニュー・営業時間は変更されることがあるため、予約時に公式ページで最終確認してください。一承の通常ランチ営業は土日祝です。</div>
 </main>
 
