@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>課長のためのAI参謀活用ガイド</title>
+<meta name="description" content="進捗管理・予算管理・トラブル対応・部下育成・DX推進を、AI参謀に任せて軽く回すための実践ガイド。">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#172033;--muted:#657086;--line:#dbe1ea;--accent:#3157d5;--accent2:#eef2ff;--good:#147a53;--warn:#b46a00;--bad:#b33b3b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;line-height:1.75}
+.wrap{max-width:1100px;margin:auto;padding:24px}.hero{padding:42px 28px;border-radius:24px;background:linear-gradient(135deg,#14224a,#3157d5);color:#fff;box-shadow:0 14px 36px rgba(18,36,83,.18)}
+.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.15;margin:0 0 14px}.hero p{margin:0;max-width:780px;font-size:1.05rem;opacity:.94}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.badge{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.14);font-size:.88rem}
+.notice{margin:18px 0;padding:15px 17px;background:#fff8e6;border:1px solid #ecd9a3;border-radius:14px}
+.section{margin-top:28px}.section h2{font-size:1.6rem;margin-bottom:12px}.lead{color:var(--muted)}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin:18px 0}.node{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center;font-weight:700;min-height:88px;display:flex;align-items:center;justify-content:center}.arrow{text-align:center;font-size:24px;color:var(--accent)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 14px}.tab{border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700}.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.panel{display:none}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 6px 20px rgba(20,32,60,.05)}.card h3{margin-top:0}
+.prompt{background:#101827;color:#edf3ff;border-radius:14px;padding:16px;white-space:pre-wrap;overflow:auto;font-size:.94rem}.tag{display:inline-block;background:var(--accent2);color:#2c46a2;padding:4px 9px;border-radius:999px;font-size:.82rem;font-weight:700}
+.example{border-left:4px solid var(--accent);padding:12px 14px;background:#f8faff;border-radius:0 12px 12px 0;margin-top:12px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden}th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eef2f8}.score{font-weight:800}
+.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.template{border:1px dashed #9fb0d7;background:#fbfcff;border-radius:14px;padding:14px;margin-top:12px}
+.steps{counter-reset:s}.step{counter-increment:s;position:relative;padding:14px 14px 14px 54px;background:#fff;border:1px solid var(--line);border-radius:14px;margin:10px 0}.step:before{content:counter(s);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:800}
+footer{margin:36px 0 12px;color:var(--muted);font-size:.88rem}
+@media(max-width:760px){.wrap{padding:14px}.hero{padding:28px 20px}.grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>課長のための「AI参謀」活用ガイド</h1>
+<p>AIを使い倒すこと自体を目的にせず、進捗管理・予算・トラブル・部下育成・DX推進を「80点で速く回す」ための実践ページです。個人向けChatGPTではなく、会社で許可されたマルチLLMサービスのプロジェクト機能を使う想定です。</p>
+<div class="badges"><span class="badge">管理職</span><span class="badge">Lightblue想定</span><span class="badge">80点主義</span><span class="badge">AI＝参謀</span><span class="badge">最終判断は人間</span></div>
+</section>
+
+<div class="notice"><b>前提：</b>社内情報を扱う場合は、必ず会社が許可した環境・ルールの範囲で利用してください。公開ページなので以下の例はすべて架空です。</div>
+
+<section class="section">
+<h2>「自分が全部やる」から「AIに下ごしらえさせる」へ</h2>
+<p class="lead">会議・判断・対人コミュニケーションは人間。整理・比較・下書き・抜け漏れ確認はAI。毎回ゼロから考えないことがポイントです。</p>
+<div class="flow">
+<div class="node">① 情報を渡す<br><small>メモ・表・議事録</small></div><div class="arrow">→</div>
+<div class="node">② AIが整理<br><small>論点・リスク・案</small></div><div class="arrow">→</div>
+<div class="node">③ 課長が判断<br><small>承認・優先順位</small></div>
+</div>
+</section>
+
+<section class="section">
+<h2>役割別タブ</h2>
+<div class="tabs">
+<button class="tab active" data-tab="pm">① PM補佐</button>
+<button class="tab" data-tab="report">② 報告資料</button>
+<button class="tab" data-tab="trouble">③ トラブル参謀</button>
+<button class="tab" data-tab="people">④ 部下育成</button>
+<button class="tab" data-tab="dx">⑤ DX推進</button>
+<button class="tab" data-tab="routine">⑥ 日常運用</button>
+</div>
+
+<div id="pm" class="panel active">
+<div class="grid">
+<div class="card"><span class="tag">役割</span><h3>PM補佐：案件を「全部読む」から卒業</h3><p>複数案件の状況をAIに整理させ、課長は赤信号だけを見る。</p><div class="example"><b>架空例</b><br>A案件：設計完了、テスト2日遅れ。B案件：要件未確定。C案件：順調。ただし担当者が来週3日不在。</div></div>
+<div class="card"><span class="tag">AIへの依頼例</span><div class="prompt">以下は今週の案件状況です。
+課長向けに「順調／注意／危険」に分類してください。
+
+各案件について
+・遅延リスク
+・私が判断すべきこと
+・担当者に確認すること
+・来週までのアクション
+を表にしてください。
+
+最後に「今週、私が見るべき3点」だけを出してください。</div></div>
+</div>
+<div class="card"><h3>出力イメージ</h3><table><tr><th>案件</th><th>判定</th><th>理由</th><th>課長アクション</th></tr><tr><td>A</td><td class="warn score">注意</td><td>テスト2日遅延</td><td>後続工程への影響確認</td></tr><tr><td>B</td><td class="bad score">危険</td><td>要件未確定</td><td>決裁者を特定し期限設定</td></tr><tr><td>C</td><td class="good score">順調</td><td>進捗良好</td><td>不在期間の代替担当のみ確認</td></tr></table></div>
+</div>
+
+<div id="report" class="panel"><div class="grid">
+<div class="card"><h3>報告資料：一度作った型は使い回す</h3><p>月次・週次の報告は「事実 → 問題 → 原因 → 対応 → 次月」の型に固定。数字や出来事だけ差し替える。</p><div class="template"><b>5ブロック型</b><br>①実績　②差異　③原因　④対策　⑤上司に判断してほしいこと</div></div>
+<div class="card"><div class="prompt">あなたは管理職の資料作成補佐です。
+以下のメモから、部長向け月次報告を作ってください。
+
+条件：
+・1ページで読める量
+・結論を先に
+・事実と推測を分ける
+・悪い情報をぼかさない
+・判断依頼がある場合は最後に明記
+・前月の文章表現を踏襲</div></div>
+</div></div>
+
+<div id="trouble" class="panel"><div class="grid">
+<div class="card"><h3>トラブル参謀：初動の抜け漏れを防ぐ</h3><p>障害・クレーム・納期遅延など、焦る場面ほどAIに整理させる。AIは責任者ではなくチェックリスト係。</p><div class="example"><b>架空例</b><br>9:10 システム停止、利用者約120名に影響。9:18 ベンダーへ連絡。原因不明。復旧見込み未定。</div></div>
+<div class="card"><div class="prompt">以下のトラブル情報を整理してください。
+
+①今すぐ確認すること
+②関係者への連絡
+③上司報告
+④原因調査
+⑤暫定対策
+⑥再発防止
+
+さらに、
+・まだ分かっていないこと
+・部長から聞かれそうな質問5個
+・今の時点で断定してはいけないこと
+を出してください。</div></div>
+</div></div>
+
+<div id="people" class="panel"><div class="grid">
+<div class="card"><h3>部下育成：1on1前の準備を5分で</h3><p>評価をAIに決めさせるのではなく、「観察事実の整理」「質問づくり」「伝え方の改善」に使う。</p><div class="example"><b>架空例</b><br>若手社員：納期は守る。質問が遅く、一人で抱え込みやすい。先月は顧客説明資料を自主的に改善。</div></div>
+<div class="card"><div class="prompt">以下は部下の最近1か月の観察メモです。
+1on1用に整理してください。
+
+・まず褒める点
+・確認したい点
+・本人に考えてもらう質問
+・改善を求める場合の伝え方
+・次の1か月の小さな目標
+
+人格評価はせず、観察できる行動をベースにしてください。</div></div>
+</div></div>
+
+<div id="dx" class="panel"><div class="grid">
+<div class="card"><h3>DX推進：「AIを入れる」より「面倒を減らす」</h3><p>ツール導入を目的にしない。現場の手作業を棚卸しし、AI・ワークフロー・既存SaaSのどれで減らすかを選ぶ。</p>
+<table><tr><th>業務</th><th>まず試す</th></tr><tr><td>文章の下書き</td><td>LLM</td></tr><tr><td>定型転記</td><td>ワークフロー/自動化</td></tr><tr><td>検索に時間がかかる</td><td>社内検索/ナレッジAI</td></tr><tr><td>判断が属人化</td><td>判断基準を文書化＋AI補助</td></tr></table></div>
+<div class="card"><div class="prompt">この業務をDX候補として評価してください。
+
+評価軸：
+・月の作業時間
+・繰り返し頻度
+・手順の定型度
+・ミスの影響
+・AI向きか
+・自動化向きか
+・そもそも業務廃止できないか
+
+「やる価値 高／中／低」で判定し、
+最小の実証方法を提案してください。</div></div>
+</div></div>
+
+<div id="routine" class="panel"><div class="card"><h3>おすすめの1週間</h3>
+<table><tr><th>タイミング</th><th>AIに任せること</th><th>自分がやること</th></tr>
+<tr><td>月曜朝</td><td>今週の重要事項3つに圧縮</td><td>優先順位を決める</td></tr>
+<tr><td>会議前</td><td>論点・質問候補を作る</td><td>意思決定する</td></tr>
+<tr><td>会議後</td><td>決定・宿題・期限を抽出</td><td>担当者を確定する</td></tr>
+<tr><td>木曜</td><td>案件の赤黄緑判定</td><td>危険案件だけ深掘る</td></tr>
+<tr><td>金曜</td><td>今週の出来事を週報化</td><td>不要部分を削る</td></tr>
+</table></div></div>
+</section>
+
+<section class="section">
+<h2>Lightblueの「プロジェクト」に最初に入れる指示</h2>
+<p class="lead">会社環境でプロジェクトに共通指示を保存できる場合のたたき台です。</p>
+<div class="prompt">あなたは管理職である私の「AI参謀」です。
+
+目的：
+私自身の作業量を減らし、必要な判断に集中できるようにすること。
+
+基本方針：
+・完璧より80点を速く出す
+・長文より、判断に必要な情報を優先
+・事実／推測／提案を分ける
+・不明点を勝手に事実扱いしない
+・問題は「状況・問題・判断事項・次のアクション」で整理
+・私にしかできない判断と、AIに任せられる作業を分ける
+・管理職向け文章は、結論→根拠→対応の順
+・過剰なDXや新ツール導入を勧めず、既存環境で楽になる方法を優先
+
+よく扱うテーマ：
+進捗管理、予算管理、トラブル対応、部下育成、会議準備、報告資料、DX推進。</div>
+</section>
+
+<section class="section">
+<h2>「AIに任せる / 人間が持つ」の境界</h2>
+<div class="grid">
+<div class="card"><h3>AIに任せやすい</h3><ul><li>要約・分類</li><li>比較表</li><li>報告書の下書き</li><li>リスク洗い出し</li><li>質問案</li><li>議事録からToDo抽出</li><li>過去フォーマットへの整形</li></ul></div>
+<div class="card"><h3>人間が持つ</h3><ul><li>人事評価の最終判断</li><li>重要な予算承認</li><li>対外的な責任判断</li><li>機密情報を入力してよいかの判断</li><li>部下への重要フィードバック</li><li>トラブル時の最終意思決定</li></ul></div>
+</div>
+</section>
+
+<section class="section">
+<h2>最初の2週間はこれだけ</h2>
+<div class="steps">
+<div class="step"><b>プロジェクトを1個だけ作る。</b><br>名前は「AI参謀」程度でよい。</div>
+<div class="step"><b>毎日1つ「面倒な仕事」を投げる。</b><br>新しいツールを増やさない。</div>
+<div class="step"><b>うまくいった指示を残す。</b><br>月次報告、障害対応、1on1など定型業務ほど再利用。</div>
+<div class="step"><b>2週間後に棚卸し。</b><br>「実際に時間が減ったもの」だけ続ける。AI活用のためのAI活用はやめる。</div>
+</div>
+</section>
+
+<footer>公開用・汎用版。社内情報を扱う際は各社のセキュリティ・情報管理ルールを優先してください。</footer>
+</div>
+<script>
+const tabs=[...document.querySelectorAll('.tab')],panels=[...document.querySelectorAll('.panel')];
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');}));
+</script>
+</body>
+</html>
